@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Xuezhen Ge</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Xuezhen Ge, postdoctoral researcher in climate change biology, insect ecology and mathematical modeling at Wilfrid Laurier University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a narrow reading column with a left "field notebook" margin for labels; one suitability-index gradient carries the climate theme. */
+:root {
+  --bg: #f2f4ef;
+  --surface: #e6eae2;
+  --ink: #17221c;
+  --muted: #56645b;
+  --rule: #c9d1c6;
+  --moss: #2c6649;
+  --amber: #b9741a;
+  --cold: #3d6f8f;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101713; --surface: #18221c; --ink: #e2e9e3; --muted: #9aa99f; --rule: #2c3a31;
+    --moss: #7fc29f; --amber: #e2a54c; --cold: #7fb1d1; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101713; --surface: #18221c; --ink: #e2e9e3; --muted: #9aa99f; --rule: #2c3a31;
+  --moss: #7fc29f; --amber: #e2a54c; --cold: #7fb1d1; color-scheme: dark;
+}
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: var(--moss); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--amber); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 2px; }
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Top bar */
+.top { border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1rem; }
+.mark { font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.01em; color: var(--ink); text-decoration: none; }
+.top nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem; align-items: end; padding-block: 3.5rem 2.25rem; }
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+.hero .role { font-size: 1.2rem; margin: 0 0 0.25rem; }
+.hero .inst { color: var(--muted); margin: 0; }
+.hero .lede { max-width: 38rem; margin: 1.5rem 0 0; font-size: 1.15rem; }
+.portrait { width: 13rem; max-width: 100%; height: auto; aspect-ratio: 3 / 4; align-self: start; object-fit: cover; object-position: 50% 20%; border-radius: 3px; display: block; }
+.hanzi { font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif; font-weight: 500; font-size: 0.4em; letter-spacing: 0.08em; color: var(--muted); display: block; margin-top: 0.6rem; }
+
+/* CV lists: year in the left margin, entry on the right */
+.cv { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.cv li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; }
+.cv .yr { font-family: var(--font-mono); font-size: 0.82rem; color: var(--amber); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+.cv .what { font-weight: 600; }
+.cv .where { color: var(--muted); font-size: 0.95rem; }
+.cv .detail { font-size: 0.93rem; margin-top: 0.15rem; }
+.cv.tight { gap: 0.55rem; }
+.cv.tight .what { font-weight: 400; }
+.sub { font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; margin: 2rem 0 0.9rem; }
+.sub:first-child { margin-top: 0; }
+.pairs { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 0.6rem 1rem; margin: 0; }
+.pairs dt { font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding-top: 0.2rem; }
+.pairs dd { margin: 0; }
+.tag.status { border-color: var(--amber); color: var(--amber); }
+.links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+.btn {
+  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.04em;
+  padding: 0.5rem 0.85rem; border: 1px solid var(--rule); border-radius: 3px;
+  color: var(--ink); text-decoration: none; background: var(--bg);
+}
+.btn:hover { border-color: var(--moss); color: var(--moss); }
+.btn.primary { background: var(--moss); border-color: var(--moss); color: var(--bg); }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+
+/* Suitability scale: the page's one flourish */
+.scale { margin-top: 0; }
+.scale .bar { height: 6px; background: linear-gradient(90deg, var(--cold), var(--moss) 45%, var(--amber)); }
+.scale .ticks { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); padding-top: 0.35rem; letter-spacing: 0.04em; }
+
+/* Sections */
+section { padding-block: 3.25rem; border-bottom: 1px solid var(--rule); }
+section:last-of-type { border-bottom: 0; }
+.sec { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 2rem; }
+.sec > h2 {
+  font-family: var(--font-mono); font-weight: 500; font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--muted); margin: 0.4rem 0 0;
+}
+.sec > div { min-width: 0; }
+.prose p { margin: 0 0 1rem; max-width: 40rem; }
+.prose p:last-child { margin-bottom: 0; }
+
+.themes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.5rem; }
+.theme h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.3rem; line-height: 1.2; margin: 0 0 0.5rem; text-wrap: balance; }
+.theme p { margin: 0; color: var(--ink); }
+.theme .eg { margin-top: 0.6rem; font-size: 0.9rem; color: var(--muted); }
+
+.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.metric { padding: 1rem 1rem 1rem 0; }
+.metric + .metric { padding-left: 1rem; border-left: 1px solid var(--rule); }
+.metric .n { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.metric .k { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: 0.4rem; }
+.metric .s { font-size: 0.85rem; color: var(--muted); }
+.asof { font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem; }
+.interests { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; padding: 0; list-style: none; }
+.interests li { font-family: var(--font-mono); font-size: 0.78rem; padding: 0.3rem 0.65rem; background: var(--surface); border-radius: 2px; }
+
+/* Publications */
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1.75rem; }
+.filters button {
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em; cursor: pointer;
+  padding: 0.4rem 0.75rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--bg); color: var(--muted);
+}
+.filters button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.filters .count { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); margin-left: auto; font-variant-numeric: tabular-nums; }
+.year { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--rule); }
+.year:first-of-type { border-top: 0; padding-top: 0; }
+.year > h3 { font-family: var(--font-mono); font-weight: 500; font-size: 0.9rem; color: var(--amber); margin: 0.15rem 0 0; font-variant-numeric: tabular-nums; }
+.year ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.pub { min-width: 0; }
+.pub .t { font-weight: 600; line-height: 1.35; }
+.pub .t a { color: var(--ink); text-decoration: none; }
+.pub .t a:hover { color: var(--moss); text-decoration: underline; }
+.pub .a { font-size: 0.93rem; color: var(--muted); }
+.pub .a b { color: var(--ink); font-weight: 600; }
+.pub .v { font-size: 0.93rem; font-style: italic; }
+.pub .meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+.tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.04em; padding: 0.1rem 0.45rem; border-radius: 2px; border: 1px solid var(--rule); color: var(--muted); font-variant-numeric: tabular-nums; }
+.tag.cite { border-color: transparent; background: var(--surface); color: var(--ink); }
+.tag.first { border-color: var(--moss); color: var(--moss); }
+
+.contact address { font-style: normal; }
+footer .wrap { padding-block: 2rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; }
+
+@media (max-width: 720px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 2.25rem 1.75rem; }
+  .portrait { order: -1; width: 9rem; }
+  .cv li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+  .pairs { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+  .pairs dd { margin-bottom: 0.6rem; }
+  .sec { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .themes { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+  .metric .n { font-size: 1.9rem; }
+  .year { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .filters .count { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#">Xuezhen Ge</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#cv">CV</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Xuezhen Ge <span class="hanzi" lang="zh-Hans">葛雪贞</span></h1>
+        <p class="role">Postdoctoral Researcher, Department of Biology</p>
+        <p class="inst">Wilfrid Laurier University · Waterloo, Ontario, Canada</p>
+        <p class="lede">I study how climate change reshapes species interactions: predators and prey, disease vectors, invasive pests, and plants and their fungal symbionts. I build mechanistic population models and species distribution models to forecast where these interactions are heading.</p>
+        <div class="links">
+          <a class="btn primary" href="#publications">Publications</a>
+          <a class="btn" href="#cv">CV</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=v8c8XBYAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+          <a class="btn" href="mailto:xuezhen.ge@gmail.com">xuezhen.ge@gmail.com</a>
+        </div>
+      </div>
+      <img class="portrait" src="portrait.jpg" alt="Portrait of Xuezhen Ge" width="720" height="962">
+    </div>
+    <div class="wrap scale" aria-hidden="true">
+      <div class="bar"></div>
+      <div class="ticks"><span>EI 0 · unsuitable</span><span>marginal</span><span>optimal · 100</span></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap sec">
+      <h2>About</h2>
+      <div class="prose">
+        <p>I am a postdoctoral researcher at Wilfrid Laurier University. My research focuses on how climate change affects species interactions. I am currently working on two major projects.</p>
+        <p>With Professor Mike Bonsall (University of Oxford), I study climate change and vector‑borne disease. We recently finished a project on how climate shapes the efficacy of the sterile insect technique against <i>Aedes aegypti</i>, a globally significant disease vector. With Professor Jonathan Newman (Wilfrid Laurier University), I am modelling how climate change affects the interaction between grasses and their <i>Epichloë</i> fungal symbionts. I also have several active collaborations in China on species distribution modelling.</p>
+        <p>I completed my PhD in Ecology at the University of Guelph in 2023, where my thesis, <i>Predator–Prey Interactions in a Warming World</i>, used aphids and ladybird beetles to show how cold tolerance, seasonality and local adaptation decide whether predators keep pests in check as the climate warms. Before that I trained in forest conservation at Beijing Forestry University, modelling climate suitability for 104 invasive insects with CLIMEX.</p>
+        <ul class="interests" aria-label="Research specializations">
+          <li>Insect ecology</li>
+          <li>Species distribution modelling</li>
+          <li>Population dynamics modelling</li>
+          <li>Pest management</li>
+          <li>Climate change impacts</li>
+          <li>Invasive species</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap sec">
+      <h2>Research</h2>
+      <div class="themes">
+        <article class="theme">
+          <h3>Climate and vector‑borne disease</h3>
+          <p>Climate‑tuned models of sterile insect technique (SIT) releases for <i>Aedes aegypti</i> in Florida. They ask when to release sterile males so that suppression works best under current and future climates.</p>
+          <p class="eg">With M. B. Bonsall, Oxford · <i>Ecological Applications</i>, in review</p>
+        </article>
+        <article class="theme">
+          <h3>Grasses and their fungal symbionts</h3>
+          <p>Modelling how warming changes the interaction between grass hosts and their <i>Epichloë</i> endophytes, symbionts that protect grasses from herbivores and stress.</p>
+          <p class="eg">With J. A. Newman, Wilfrid Laurier · ongoing</p>
+        </article>
+        <article class="theme">
+          <h3>Predators and prey in a warming world</h3>
+          <p>Mechanistic population models that link thermal physiology to aphid–ladybird dynamics. They show how warming and seasonality weaken top‑down control and where evolutionary rescue is possible.</p>
+          <p class="eg"><i>Functional Ecology</i> 2023 · <i>Evolutionary Applications</i> 2024 · <i>Journal of Biogeography</i> 2024</p>
+        </article>
+        <article class="theme">
+          <h3>Forecasting invasive pests</h3>
+          <p>Ecoclimatic and niche models that project the global spread of forest and agricultural pests and their pathogens under climate scenarios, built to guide quarantine and surveillance.</p>
+          <p class="eg"><i>Pest Management Science</i> · <i>Journal of Applied Ecology</i> 2024 · <i>PLoS ONE</i> 2015</p>
+        </article>
+        <article class="theme">
+          <h3>Climate risk to biodiversity people value</h3>
+          <p>Projecting how climate change affects the wildflowers, pollinators and other species chosen as US state symbols, as a way to make climate impacts tangible.</p>
+          <p class="eg"><i>People and Nature</i> 2026</p>
+        </article>
+        <article class="theme">
+          <h3>Reproducible ecology</h3>
+          <p>Contributing analyst in a many‑analysts study showing how analytical decisions alone shift effect sizes in ecology and evolutionary biology.</p>
+          <p class="eg"><i>BMC Biology</i> 2025</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="wrap sec">
+      <h2>Education</h2>
+      <div>
+        <ol class="cv">
+          <li><span class="yr">2023</span><div><div class="what">PhD in Ecology</div><div class="where">University of Guelph, Canada</div><div class="detail">Thesis: <i>Predator–Prey Interactions in a Warming World</i>. Advisors: <a href="https://scholar.google.ca/citations?user=yb6flSwAAAAJ&amp;hl=en" target="_blank" rel="noopener">Jonathan A. Newman</a> and <a href="https://scholar.google.ca/citations?user=zdgRSIMAAAAJ&amp;hl=en" target="_blank" rel="noopener">Cortland K. Griswold</a></div></div></li>
+          <li><span class="yr">2018</span><div><div class="what">MSc in Forest Conservation</div><div class="where">Beijing Forestry University, China</div><div class="detail">Thesis: <i>Global climate change impacts on the climate suitability for 104 invasive insects</i>. Advisor: Shixiang Zong. Ranked 1st of 36. Excellent Master's Thesis award.</div></div></li>
+          <li><span class="yr">2016</span><div><div class="what">BSc in Forest Conservation</div><div class="where">Beijing Forestry University, China</div><div class="detail">Ranked 1st of 26</div></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <div class="wrap sec">
+      <h2>Awards</h2>
+      <div>
+        <ol class="cv tight">
+          <li><span class="yr">2018–2022</span><div class="what">Ontario Trillium Scholarship, Government of Ontario</div></li>
+          <li><span class="yr">2018</span><div class="what">Québec–China Short‑term Research Scholarship, Fonds de recherche du Québec – Nature et technologies (FRQNT)</div></li>
+          <li><span class="yr">2018</span><div class="what">Excellent Master's Thesis, Beijing Forestry University</div></li>
+          <li><span class="yr">2017</span><div class="what">National Scholarship for Graduate Students, Ministry of Education of China</div></li>
+          <li><span class="yr">2017</span><div class="what">Academic Innovation Scholarship and First‑Class Graduate Scholarship, Beijing Forestry University</div></li>
+          <li><span class="yr">2016</span><div class="what">Outstanding Graduate Award, Beijing Municipal Education Commission</div></li>
+          <li><span class="yr">2015</span><div class="what">Third Prize, “Challenge Cup” National College Students' Science and Technology Competition</div></li>
+          <li><span class="yr">2015</span><div class="what">Baosteel Scholarship, Baosteel Education Foundation</div></li>
+          <li><span class="yr">2015</span><div class="what">National Scholarship for Undergraduates and China National Encouragement Scholarship, Ministry of Education of China</div></li>
+          <li><span class="yr">2013–2015</span><div class="what">Merit Student Scholarship, First‑Class Undergraduate Scholarship and Individual Academic Scholarship, Beijing Forestry University</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="talks">
+    <div class="wrap sec">
+      <h2>Talks &amp; posters</h2>
+      <div>
+        <ol class="cv tight">
+          <li><span class="yr">Dec 2024</span><div><div class="what">British Ecological Society Annual Meeting, Liverpool, UK</div><div class="where">Poster · Geographic variation in evolutionary rescue under climate change in a crop pest–predator system</div></div></li>
+          <li><span class="yr">Aug 2022</span><div><div class="what">ESA–CSEE Joint Meeting, Montréal, Canada</div><div class="where">Poster · Predator–prey interactions in a warming world: warmer and more seasonal climate decreases the effect of predation</div></div></li>
+          <li><span class="yr">Dec 2021</span><div><div class="what">Ecology Across Borders, British Ecological Society (virtual)</div><div class="where">Poster · Generalized responses of a predator–prey system to climate change</div></div></li>
+          <li><span class="yr">Aug 2021</span><div><div class="what">ESA Annual Meeting, Ecological Society of America (virtual)</div><div class="where">Talk · Predator–prey interactions under climatic change: a mechanistic species distribution model</div></div></li>
+          <li><span class="yr">2017</span><div><div class="what">International Pest Risk Research Group Conference, Ottawa, Canada</div><div class="where">Talk · Predicting the potential distribution in China of <i>Euwallacea fornicatus</i> (Eichhoff) under current and future climate conditions</div></div></li>
+          <li><span class="yr">2017</span><div><div class="what">Annual Meeting of the Entomological Society of China, Fujian, China</div><div class="where">Talk · Predicting the potential distribution in China of <i>Euwallacea fornicatus</i> (Eichhoff) under current and future climate conditions</div></div></li>
+          <li><span class="yr">2017</span><div><div class="what">Chinese Conference on Technology and Innovation of Forestry for Young Scientists, Hubei, China</div><div class="where">Talk · The effect of global warming on several major forest pests</div></div></li>
+          <li><span class="yr">2016</span><div><div class="what">IUFRO Regional Congress for Asia and Oceania, Beijing, China</div><div class="where">Talk · Climate change impacts on forest pests</div></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <div class="wrap sec">
+      <h2>Teaching &amp; mentoring</h2>
+      <div>
+        <h3 class="sub">Teaching assistant</h3>
+        <p style="margin:0;max-width:40rem">Invertebrate Morphology &amp; Evolution · Discovering Biodiversity · Ecology · Evolution · Populations, Communities &amp; Ecosystems · Insect Population Ecology</p>
+        <h3 class="sub">Mentees</h3>
+        <ol class="cv tight">
+          <li><span class="yr">2025–now</span><div class="what">Han Shi, MSc student, Beijing Forestry University</div></li>
+          <li><span class="yr">2017–2024</span><div class="what">Yuting Zhou, MSc–PhD student, Beijing Forestry University</div></li>
+          <li><span class="yr">2017–2021</span><div class="what">Ya Zou, MSc–PhD student, Beijing Forestry University</div></li>
+          <li><span class="yr">2017–2021</span><div class="what">Siwei Guo, BSc–MSc student, Beijing Forestry University</div></li>
+          <li><span class="yr">2016–2018</span><div class="what">Xue Li, MSc student, Beijing Forestry University</div></li>
+          <li><span class="yr">2016–2018</span><div class="what">Linjing Zhang, BSc student, Beijing Forestry University</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap sec">
+      <h2>Skills</h2>
+      <dl class="pairs">
+        <dt>Computing</dt><dd>Python, R, MATLAB, ArcGIS, CLIMEX, high‑performance computing, GitHub, LaTeX</dd>
+        <dt>Languages</dt><dd>Mandarin (native), English (fluent)</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="metrics">
+    <div class="wrap sec">
+      <h2>Citations</h2>
+      <div>
+        <div class="metrics">
+          <div class="metric"><div class="n">740</div><div class="k">Citations</div><div class="s">663 since 2021</div></div>
+          <div class="metric"><div class="n">14</div><div class="k">h-index</div><div class="s">14 since 2021</div></div>
+          <div class="metric"><div class="n">18</div><div class="k">i10-index</div><div class="s">17 since 2021</div></div>
+        </div>
+        <p class="asof">From <a href="https://scholar.google.com/citations?user=v8c8XBYAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>, November 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap sec">
+      <h2>Publications</h2>
+      <div>
+        <div class="filters" role="group" aria-label="Filter publications">
+          <button type="button" id="f-all" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" id="f-first" data-filter="first" aria-pressed="false">First author</button>
+          <button type="button" id="f-cited" data-filter="cited" aria-pressed="false">Most cited</button>
+          <span class="count" id="pub-count" aria-live="polite"></span>
+        </div>
+        <div id="pub-list"></div>
+        <noscript><p>Turn on JavaScript to see the publication list, or view it on <a href="https://scholar.google.com/citations?user=v8c8XBYAAAAJ&amp;hl=en">Google Scholar</a>.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap sec">
+      <h2>Contact</h2>
+      <div class="prose">
+        <address>
+          Department of Biology<br>
+          Wilfrid Laurier University<br>
+          75 University Avenue West<br>
+          Waterloo, Ontario N2L 3C5, Canada
+        </address>
+        <p style="margin-top:1rem">Email: <a href="mailto:xuezhen.ge@gmail.com">xuezhen.ge@gmail.com</a></p>
+        <p>Find my full record on <a href="https://scholar.google.com/citations?user=v8c8XBYAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Xuezhen Ge</span>
+    <span>Last updated November 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var S = "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=v8c8XBYAAAAJ&citation_for_view=v8c8XBYAAAAJ:";
+  // [title (HTML allowed for species names), authors, venue, year, citations, scholar id, kind]
+  var pubs = [
+    ["Timing the swarm: climate‑tuned SIT population suppression of <i>Aedes aegypti</i> in Florida", "X Ge, K Heath, JA Newman, MB Bonsall", "Ecological Applications", 2026, 0, null, "In second‑round review"],
+    ["To pool or to separate? The impact of niche shifts on predicting the distribution of invasive forest insects", "Y Zhou, X Ge, JA Newman, S Zong", "Ecography", 2026, 0, null, "In preparation"],
+    ["Wilting wildflowers and bummed‑out bees: Climate change threatens US state symbols", "X Ge, Y Zou, HA Hager, JA Newman", "People and Nature 8 (6), 1832–1851", 2026, 0, "WbkHhVStYXYC"],
+    ["Suitable area prediction and risk assessment of <i>Hylurgus ligniperda</i> in China", "Y Zou, X Ge, Y Zhou, C Li, S Zong", "", 2026, 0, "l7t_Zn2s7bgC"],
+    ["Same data, different analysts: variation in effect sizes due to analytical decisions in ecology and evolutionary biology", "E Gould, HS Fraser, TH Parker, S Nakagawa, SC Griffith, PA Vesk, … X Ge, …", "BMC Biology 23 (1), 35", 2025, 162, "K3LRdlH-MEoC"],
+    ["Climate change may make pine wilt disease more prevalent", "Y Zou, X Ge, S Zong, JA Newman", "Journal of Applied Ecology 61 (12), 3028–3039", 2024, 21, "738O_yMBCRsC"],
+    ["Robust species distribution predictions of predator and prey responses to climate change", "X Ge, CK Griswold, JA Newman", "Journal of Biogeography 51 (10), 2047–2061", 2024, 12, "XiSMed-E-HIC"],
+    ["Geographic variation in evolutionary rescue under climate change in a crop pest–predator system", "X Ge, JA Newman, CK Griswold", "Evolutionary Applications 17 (7), e13750", 2024, 7, "Tiz5es2fbqcC"],
+    ["Modeling the pest‑pathogen threats in a warming world for the red turpentine beetle (<i>Dendroctonus valens</i>) and its symbiotic fungus (<i>Leptographium procerum</i>)", "Y Zhou, S Guo, T Wang, S Zong, X Ge", "Pest Management Science 80 (7), 3423–3435", 2024, 11, "u9iWguZQMMsC"],
+    ["Niche shifts and range expansions after invasions of two major pests: the Asian longhorned beetle and the citrus longhorned beetle", "Y Zhou, J Tao, J Yang, S Zong, X Ge", "Pest Management Science 79 (9), 3149–3158", 2023, 26, "uWQEDVKXjbEC"],
+    ["Species distribution models of a predator‑prey system under climate change", "X Ge, C Griswold, J Newman", "Authorea", 2023, 1, "p2g8aNsByqUC", "Preprint"],
+    ["Warmer and more seasonal climates reduce the effect of top‑down population control: An example with aphids and ladybirds", "X Ge, CK Griswold, JA Newman", "Functional Ecology 37 (6), 1604–1619", 2023, 13, "SP6oXDckpogC"],
+    ["Risk of <i>Monochamus saltuarius</i> spreading in China", "Y Zou, X Ge, Y Zhou, S Guo, T Wang, S Zong", "Chinese Journal of Applied Entomology 60 (1)", 2023, 3, "OU6Ihb5iCvQC"],
+    ["Geographic variation in evolutionary rescue in a predator‑prey system under climate change: an example with aphids and ladybird beetles", "X Ge, JA Newman, CK Griswold", "bioRxiv 2023.03.21.533570", 2023, 2, "UxriW0iASnsC", "Preprint"],
+    ["Climate change effects on the global distribution and range shifts of citrus longhorned beetle <i>Anoplophora chinensis</i>", "Y Zhou, X Ge, J Liu, Y Zou, S Guo, T Wang, S Zong", "Journal of Applied Entomology 146 (5), 473–485", 2022, 23, "a0OBvERweLwC"],
+    ["Predator‑prey interactions in a warming world: The critical role of cold tolerance", "X Ge, CK Griswold, JA Newman", "bioRxiv 2022.01.17.476522", 2022, 3, "yD5IFk8b50cC", "Preprint"],
+    ["Prediction of the potential global distribution of the Asian longhorned beetle <i>Anoplophora glabripennis</i> (Coleoptera: Cerambycidae) under climate change", "Y Zhou, X Ge, Y Zou, S Guo, T Wang, S Zong", "Agricultural and Forest Entomology 23 (4), 557–568", 2021, 37, "cFHS6HbyZ2cC"],
+    ["Projecting the global potential distribution of <i>Cydia pomonella</i> (Lepidoptera: Tortricidae) under historical and RCP4.5 climate scenarios", "S Guo, X Ge, Y Zou, Y Zhou, T Wang, S Zong", "Journal of Insect Science 21 (2), 15", 2021, 23, "maZDTaKrznsC"],
+    ["Impacts of climate change and host plant availability on the global distribution of <i>Brontispa longissima</i> (Coleoptera: Chrysomelidae)", "Y Zou, X Ge, S Guo, Y Zhou, T Wang, S Zong", "Pest Management Science 76 (1), 244–256", 2020, 46, "YsMSGLbcyi4C"],
+    ["Prediction of the long‑term potential distribution of <i>Cryptorhynchus lapathi</i> (L.) under climate change", "Y Zou, L Zhang, X Ge, S Guo, X Li, L Chen, T Wang, S Zong", "Forests 11 (1), 5", 2019, 9, "_FxGoFyzp5QC"],
+    ["Climate change impacts on the global potential distribution of <i>Dendrolimus tabulaeformis</i>", "Y Zou, S Guo, Y Zhou, T Wang, S Zong, X Ge", "Chinese Journal of Applied Entomology 56 (6), 1382", 2019, 3, "D03iK_w7-QYC"],
+    ["Prediction of current and future potential distributions of the <i>Eucalyptus</i> pest <i>Leptocybe invasa</i> (Hymenoptera: Eulophidae) in China using the CLIMEX model", "M Huang, X Ge, H Shi, Y Tong, J Shi", "Pest Management Science 75 (11), 2958–2968", 2019, 28, "Y0pCki6q_DkC"],
+    ["Climate change impacts on the potential distribution and range shift of <i>Dendroctonus ponderosae</i> (Coleoptera: Scolytidae)", "Y Zhou, X Ge, Y Zou, S Guo, T Wang, S Zong", "Forests 10 (10), 860", 2019, 7, "eQOLeE2rZwMC"],
+    ["Projecting the potential global distribution of <i>Carpomya vesuviana</i> (Diptera: Tephritidae), considering climate change and irrigation patterns", "S Guo, X Ge, Y Zou, Y Zhou, T Wang, S Zong", "Forests 10 (4), 355", 2019, 23, "W7OEmFMy1HYC"],
+    ["Climate change impacts on the potential distribution of <i>Eogystia hippophaecolus</i> in China", "X Li, X Ge, L Chen, L Zhang, T Wang, S Zong", "Pest Management Science 75 (1), 215–223", 2019, 20, "9yKSN-GCB0IC"],
+    ["Projecting the current and future potential global distribution of <i>Hyphantria cunea</i> (Lepidoptera: Arctiidae) using CLIMEX", "X Ge, S He, C Zhu, T Wang, Z Xu, S Zong", "Pest Management Science 75 (1), 160–169 · cover article", 2019, 123, "d1gkVwhDpl0C"],
+    ["Predicting the potential distribution in China of <i>Euwallacea fornicatus</i> (Eichhoff) under current and future climate conditions (author correction)", "X Ge, C Jiang, L Chen, S Qiu, Y Zhao, T Wang, S Zong", "Scientific Reports 8, 5772", 2018, 31, "Tyk-4Ss8FVUC"],
+    ["Predicting the potential distribution in China of <i>Hyphantria cunea</i> (Drury) under current and future climate conditions", "X Ge, S Zong", "Entomology 2017", 2017, 0, "ufrVoPGSRksC", "Conference"],
+    ["Potential distribution predicted for <i>Rhynchophorus ferrugineus</i> in China under different climate warming scenarios", "X Ge, S He, T Wang, W Yan, S Zong", "PLoS ONE 10 (10), e0141111", 2015, 66, "IjCSPb-OGe4C"],
+    ["Areas of potential suitability and survival of <i>Dendroctonus valens</i> in China under extreme climate warming scenario", "S He, X Ge, T Wang, J Wen, S Zong", "Bulletin of Entomological Research 105 (4), 477–484", 2015, 14, "u-x6o8ySG0sC"],
+    ["Areas of China predicted to have a suitable climate for <i>Anoplophora chinensis</i> under a climate‑warming scenario", "X Ge, S Zong, S He, Y Liu, X Kong", "Entomologia Experimentalis et Applicata 153 (3), 256–265", 2014, 26, "qjMakFHDy7sC"]
+  ];
+
+  var list = document.getElementById("pub-list");
+  var count = document.getElementById("pub-count");
+  var buttons = document.querySelectorAll(".filters button");
+
+  function isFirst(p) { return /^X Ge\b/.test(p[1]); }
+  function authors(a) { return a.replace(/\bX Ge\b/g, "<b>X Ge</b>"); }
+  function item(p) {
+    var tags = [];
+    if (isFirst(p)) tags.push('<span class="tag first">First author</span>');
+    if (p[6]) tags.push('<span class="tag' + (p[5] ? "" : " status") + '">' + p[6] + "</span>");
+    if (p[4] > 0) tags.push('<span class="tag cite">' + p[4] + (p[4] === 1 ? " citation" : " citations") + "</span>");
+    var title = p[5] ? '<a href="' + S + p[5] + '" target="_blank" rel="noopener">' + p[0] + "</a>" : p[0];
+    return '<li class="pub"><div class="t">' + title + "</div>" +
+      '<div class="a">' + authors(p[1]) + "</div>" +
+      (p[2] ? '<div class="v">' + p[2] + "</div>" : "") +
+      (tags.length ? '<div class="meta">' + tags.join("") + "</div>" : "") + "</li>";
+  }
+  function render(filter) {
+    var rows = pubs.slice();
+    if (filter === "first") rows = rows.filter(isFirst);
+    var html = "";
+    if (filter === "cited") {
+      rows = rows.filter(function (p) { return p[4] >= 20; }).sort(function (a, b) { return b[4] - a[4]; });
+      html = '<div class="year"><h3>20+</h3><ol>' + rows.map(item).join("") + "</ol></div>";
+    } else {
+      var years = [];
+      rows.forEach(function (p) { if (years.indexOf(p[3]) < 0) years.push(p[3]); });
+      html = years.map(function (y) {
+        return '<div class="year"><h3>' + y + "</h3><ol>" +
+          rows.filter(function (p) { return p[3] === y; }).map(item).join("") + "</ol></div>";
+      }).join("");
+    }
+    list.innerHTML = html;
+    count.textContent = rows.length + (rows.length === 1 ? " paper" : " papers");
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.filter === filter ? "true" : "false"); });
+  }
+  buttons.forEach(function (b) { b.addEventListener("click", function () { render(b.dataset.filter); }); });
+  render("all");
+})();
+</script>
+</body>
+</html>
